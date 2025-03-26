@@ -1,24 +1,34 @@
-import React from 'react';
-import './Users.scss'
-import IMAGE1 from '../assets/images/favicon.png'
-import IMAGE2 from '../assets/images/test.svg'
-
+import React, { useState } from "react";
+import "./Users.scss";
+import IMAGE1 from "../assets/images/favicon.png";
+import IMAGE2 from "../assets/images/test.svg";
 
 interface UsersProps {}
 
 const Users: React.FC<UsersProps> = ({}) => {
-  return <div>
+  const [number, setNumber] = useState(0);
 
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. At blanditiis harum officiis amet qui eos!
-</p>
-    
-    <div>
-        <img src={IMAGE1} alt='text image' width={300} height={300} />
-        <img src={IMAGE2} alt='text image 2' width={300} height={300} />
+  return (
+    <div className="users-container">
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. At blanditiis
+    harum officiis amet qui eos!
+  </p>
 
-    </div>
-  </div>;
+  <p>{process.env.REACT_APP}</p>
+
+  <div className="image-container">
+    <img src={IMAGE1} alt="text image" />
+    <img src={IMAGE2} alt="text image 2" />
+  </div>
+
+  <div className="button-container">
+    <button onClick={() => setNumber((num) => num + 1)}>Click Me</button>
+    <button>{number}</button>
+  </div>
+</div>
+
+  );
 };
 
 export default Users;
